@@ -1,30 +1,35 @@
- 
- interface ButtonProprs {
-    varient: 'primary' | 'secondary';
-    size: 'sm' |  'md' | 'lg';
-    text: string;
-    startIcon?:any;
-    endIcon?:any;
-    onClick: ()=>void;
+import type { ReactElement } from "react";
+
+interface ButtonInterface{
+    Variant: 'primary' | 'secondary'
+    title: string;
+    size: 'sm' | 'md' | 'lg';
+    startIcon?: ReactElement;
+    endIcon?: ReactElement;
 }
 
 
-const varientStyle={
-    "primary": "bg-purple-600 text-white",
-    "secondary": "bg-purple-300 text-purple-600"
+const VariantStyle={
+    'primary':'bg-purple-600 text-white',
+    'secondary':'bg-purple-400 text-purple-600'
 }
-const defaultStyle="rounded-md flex";
-
+//
 const sizeStyle={
-    'sm':"py-1 px-2",
-    "md":"py-2 px-4",
-    "lg":"py-4 px-6",
+    'sm': "py-1 px-2 text-sm rounded-sm",
+    'md': "py-2 px-4 text-md rounded-md",
+    'lg': "py-4 px-6 text-lg rounded-lg"
 }
 
-export const  Button = (props:ButtonProprs) => {
+const defaultStyle = ""
 
-    return <button className={`${varientStyle[props.varient]} ${defaultStyle} ${sizeStyle[props.size]}`}>{props.startIcon ? <div className="pr-2">{props.startIcon}</div>:null} {props.text} {props.endIcon}</button>
+export function Button(props: ButtonInterface) {
+    return <button className={`${VariantStyle[props.Variant]}  ${sizeStyle[props.size]}  ${defaultStyle}`}>
 
+        <div className="flex items-center">
+        {props.startIcon} 
+        <div className="pl-2 pr-2">{props.title}</div> {props.endIcon}
+        </div>
+
+    </button>
+    
 }
-
-<Button varient="primary" size="md" onClick={()=>{}} text={"asd"} />

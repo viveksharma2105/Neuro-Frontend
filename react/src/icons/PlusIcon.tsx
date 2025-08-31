@@ -9,4 +9,3 @@ export const PlusIcon =  (props:IconProps) => {
 </svg>
 
 }
-
