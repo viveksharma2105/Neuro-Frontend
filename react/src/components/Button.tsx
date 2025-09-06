@@ -6,6 +6,7 @@ interface ButtonInterface{
     size: 'sm' | 'md' | 'lg';
     startIcon?: ReactElement;
     endIcon?: ReactElement;
+    onClick?:()=>void;
 }
 
 
@@ -23,7 +24,7 @@ const sizeStyle={
 const defaultStyle = "font-light"
 
 export function Button(props: ButtonInterface) {
-    return <button className={`${VariantStyle[props.Variant]}  ${sizeStyle[props.size]}  ${defaultStyle}`}>
+    return <button onClick={props.onClick} className={`${VariantStyle[props.Variant]}  ${sizeStyle[props.size]}  ${defaultStyle}`}>
 
         <div className="flex items-center">
         {props.startIcon} 
