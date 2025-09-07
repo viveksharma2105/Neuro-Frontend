@@ -4,11 +4,13 @@ import { ShareIcone } from "./icons/ShareIcon";
 import { Card } from "./components/Card";
 import { CreateContentModal } from "./components/CreateContentModal";
 import { useState } from "react";
+import { Sidebar } from "./components/Sidebar";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
-  return (
-    <div className="p-4">
+  return <div>
+    <Sidebar/>
+    <div className="p-4 ml-72 min-h-screen bg-grey-100 border-2">
       <CreateContentModal open={modalOpen} onClose={()=>{
         setModalOpen(false)
       }}/>
@@ -42,7 +44,10 @@ function App() {
         />
       </div>
     </div>
-  );
+    </div>
+    
+    
+  
 }
 
 
