@@ -7,6 +7,8 @@ interface ButtonInterface{
     startIcon?: ReactElement;
     endIcon?: ReactElement;
     onClick?:()=>void;
+    fullWidth?: boolean;
+    loading?: boolean;
 }
 
 
@@ -24,7 +26,7 @@ const sizeStyle={
 const defaultStyle = "font-light"
 
 export function Button(props: ButtonInterface) {
-    return <button onClick={props.onClick} className={`${VariantStyle[props.Variant]}  ${sizeStyle[props.size]}  ${defaultStyle}`}>
+    return <button onClick={props.onClick}  className={`${VariantStyle[props.Variant]}  ${sizeStyle[props.size]} ${props.fullWidth ? " w-full flex justify-center items-center": ""} ${props.loading? "opacity-45" : ""} ${defaultStyle}`} disabled={props.loading}>
 
         <div className="flex items-center">
         {props.startIcon} 
